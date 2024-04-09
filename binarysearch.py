@@ -2,7 +2,7 @@ from typing import List
 
 """
 Binary search implementation on a sorted array to find target integer,
-O(n log n) time complexity
+O(log n) time complexity
 """
 
 
