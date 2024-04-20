@@ -1,10 +1,36 @@
 #dfs implementation:
+class Solution:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
+        graph = {i: [] for i in range(numCourses)}
+        visit = set()
 
+        #course points to its prerequisites
+        for crs, pre in prerequisites:
+            graph[crs].append(pre) 
 
+        def dfs(crs):
+            if crs in visit:
+                return False  # cycle
+            #base case, if course has no prerequisites, return True
+            if graph[crs] == []:
+                return True 
+            visit.add(crs)
+            
+            for pre in graph[crs]:
+                result = dfs(pre) 
+                if not result: #prereq cant be completed
+                    return False  
+            
+            
+            visit.remove(crs) #mark course as fully processed
+            graph[crs] = []  #clear prerequisites
+            return True
 
-
-
-
+        #check if all courses can be completed
+        for c in range(numCourses):
+            if not dfs(c):
+                return False  
+        return True 
 
 
 
