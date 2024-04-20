@@ -19,6 +19,8 @@ class Solution:
             #if both nodes p and q are less than current, move to left subtree
             elif p.val < cur.val and q.val < cur.val:
                 cur = cur.left #update cur to root of left subtree
+          #if a split occurs where p and q are on different sides of cur, following the properties of a BST,
+          #then we return cur (the parent node), as they are on different subtrees
             else:
                 return cur  #current node is the LCA of p and q
                 
