@@ -18,6 +18,7 @@ class Solution:
         root = TreeNode(preorder[0]) #first val of our treenode will always be first val (root)
         mid = inorder.index(preorder[0]) #find position of root val in inorder list
         root.left = self.buildTree(preorder[1:mid + 1], inorder[:mid]) #preorder from index 1 to mid, inorder up till mid 
-        root.right = self.buildTree(preorder[mid + 1:], inorder[mid + 1:])
+        root.right = self.buildTree(preorder[mid + 1:], inorder[mid + 1:]) #recursively build right subtree 
         return root 
         
+
