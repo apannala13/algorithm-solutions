@@ -6,20 +6,25 @@
 #         self.right = right
 class Solution:
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
-        
-        self.balanced = True
+        self.balanced = True #flag
 
         def dfs(node):
             if not node:
-                return True 
-            left = dfs(node.left)
-            right = dfs(node.right)
+                return False
+            
+            left = dfs(node.left) #height of left subtree
+            right = dfs(node.right) #height of right subtree
 
-            if (abs(left - right) > 1):
+            if abs(left - right) > 1: #binary tree is not balanced
                 self.balanced = False
 
-
-            return max(left, right) + 1
+            #calculate and return the height of the current node
+            # +1 for the current node itself plus the height of its taller subtree
+            return 1 + max(left, right)
 
         dfs(root)
-        return self.balanced
+        return self.balanced 
+
+
+
+            
