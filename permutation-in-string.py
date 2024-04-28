@@ -1,13 +1,13 @@
 class Solution:
     def checkInclusion(self, s1: str, s2: str) -> bool:
-        if not s1 or s2 or len(s1) > len(s2):
+        if not s1 or not s2 or len(s1) > len(s2):
             return False 
         hash1, hash2 = {}, {}
         
         for i in range(len(s1)):
             hash1[s1[i]] = 1 + hash1.get(s1[i], 0)
         
-        for i in range(len(s2)):
+        for i in range(len(s1)):
             if i < len(s2):
                 hash2[s2[i]] = 1 + hash2.get(s2[i], 0)
             
