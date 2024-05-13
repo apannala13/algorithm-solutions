@@ -15,7 +15,7 @@ class Solution:
             #track total hours needed with the current speed 'k'
             hours = 0
             #calculate the hours needed to eat the pile at speed 'k'
-            #e.g.: 3/2 + 6/2 + 7/2 + 11/2 should be <= 8
+            #e.g.: 3/2 + 6/2 + 7/2 + 11/2 should be <= k
             for pile in piles:
                 hours += math.ceil((pile/k)) #round up since partial hours count as full hours
             #If the total hours with speed 'k' are less than or equal to 'h'
